@@ -45,9 +45,14 @@ values('Quần Dài','1990-05-19'),('Áo Dài','1990-05-19'),('Mũ Phớt','1990
 insert into product_detail( product_id, color_id,size_id,price,stock)
 values('1','1','1','1200','5'),('2','1','1','1500','2'),('1','2','3','500','3'),('1','2','3','1600','3'),('3','1','4','1200','5'),('3','3','5','1200','6')
 ;
-
+-- hiển thị thông tin sản phẩm chi tiết (product_detail) có giá lớn hơn 1200
 select * from product_detail where price > 1200;
+-- hiển thị tất cả thông tin các màu
+select product_detail.id,price,stock , color.name from product_detail join color
+on product_detail.color_id = color.id;
+-- hiển thị tất cả thông tin các size
+select product_detail.id,price,stock , size.name from product_detail join size
+on product_detail.size_id = size.id;
+-- hiển thị tất cả sản phẩm chi tiết (product_detail) của mã sản phầm là 1
 select * from product_detail where product_id = '1';
-select * from product_detail;
-select id,color_id from product_detail ;
-select id,size_id from product_detail ;
+
